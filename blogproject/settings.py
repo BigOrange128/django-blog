@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'comments',
+    'haystack',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #静态文件的收集目录
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#十项分页
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
+#有文章更新时更新索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+#ENGINE 指定搜索引擎
+HAYSTACK_CONNECTIONS = {
+    'default':{
+        'ENGINE' : 'blog.whoosh_cn_backend.WhooshEngine',
+        'PATH' : os.path.join(BASE_DIR, 'whoosh_index')
+    }
+}
