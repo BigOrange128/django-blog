@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<div class="container">
+		<div class="container">
     <header id="site-header">
         <div class="row">
             <div class="col-md-4 col-sm-5 col-xs-8">
@@ -72,91 +72,30 @@
 <div class="copyrights">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
 <div class="copyrights">Modified by <a href="http://zmrenwu.com/">陈西成的博客</a></div>
 
-<div class="content-body">
-    <div class="container">
-        <div class="row">
-            <main class="col-md-8">
-                {% block main %}
-                {% endblock main %}
-            </main>
-            <aside class="col-md-4">
-                {% block toc %}
-                {% endblock toc %}
-                <div class="widget widget-recent-posts">
-                    <h3 class="widget-title">最新文章</h3>
-                    <ul>
-                        {% get_recent_posts as recent_posts_list %}
-                        {% for post in recent_posts_list %}
-                        <li>
-                            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                        </li>
-                        {% empty %}
-                        暂无文章！
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div class="widget widget-archives">
-                    <h3 class="widget-title">归档</h3>
-                    <ul>
-                        {% archives as data_list %}
-                        {% for data in data_list %}
-                        <li>
-                            <a href="{% url 'blog:archives' data.year data.month %}">{{ data.year }} 年 {{ data.month }} 月</a>
-                        </li>
-                        {% empty %}
-                        暂无归档
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                <div class="widget widget-category">
-                    <h3 class="widget-title">分类</h3>
-                    <ul>
-                        {% get_categories as categories_list %}
-                        {% for categories in categories_list %}
-                        <li>
-                            <a href="{% url 'blog:category' categories.pk %}">{{ categories.name }}<span class="post-count"> ({{ categories.num_posts }})</span></a>
-                        </li>
-                        {% empty %}
-                        暂无分类
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                <div class="widget widget-tag-cloud">
-                    <h3 class="widget-title">标签云</h3>
-                    <ul>
-                        {% get_tag as tags %}
-                        {% for tag in tags %}
-                        <li>
-                            <a href="{% url 'blog:tag' tag.pk %}">{{ tag.name }}</a>
-                        </li>
-                        {% empty %}
-                        暂无标签
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div class="rss">
-                    <a href="{% url 'rss' %}"><span class="ion-social-rss-outline"></span> RSS 订阅</a>
-                </div>
-            </aside>
-        </div>
-    </div>
-</div>
-<footer id="site-footer">
-    <div class="container">
-        <div class="row">
+		<div class="content-body">
+			<div class="container">
+				<div class="row">
+					<main class="col-md-12">
+                        {% block main %}
+                        {% endblock %}
+					</main>
+				</div>
+			</div>
+		</div>
+		<footer id="site-footer">
+            <div class="container">
+            <div class="row">
             <div class="col-md-12">
                 <p class="copyright">&copy 2018 - 采集自<a href="https://www.zmrenwu.com/"
                                                         target="_blank" title="追梦人物">追梦人物</a>
                     - 由<a href="" title="网页模板" target="_blank">BigOrange</a>修改
                 </p>
             </div>
-        </div>
-    </div>
-</footer>
+            </div>
+            </div>
+        </footer>
 
-<!-- Mobile Menu -->
+		<!-- Mobile Menu -->
 <div class="overlay overlay-hugeinc">
     <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
     <nav>
@@ -170,6 +109,5 @@
 </div>
 
 <script src="{% static 'blog/js/script.js' %}"></script>
-
 </body>
 </html>

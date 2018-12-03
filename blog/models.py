@@ -66,6 +66,6 @@ class Post(models.Model):
                     'markdown.extensions.codehilite'
                 ] )
             #先将Markdown文本渲染成HTML文本, strip_tags去掉HTML标签
-            self.excerpt = strip_tags(md.convert(self.body))[:54]
+            self.excerpt = strip_tags(md.convert(self.body))[:180]
         #调用父类的save方法将数据保存到数据库中
         super(Post, self).save(*args, **kwargs)

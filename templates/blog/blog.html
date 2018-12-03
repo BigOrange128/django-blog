@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 
 {% block main %}
-    {% for post in post_list %}
+{% for post in post_list %}
                 <!-- pk 是 primary key 的缩写，即 post 对应于数据库中记录的 id 值-->
                 <article class="post post-{{ post.pk }}">
                     <header class="entry-header">
@@ -18,7 +18,7 @@
                         </div>
                     </header>
                     <div class="entry-content clearfix">
-                        <p>{{ post.excerpt|slice:":54" }}...</p>
+                        <p>{{ post.excerpt }}        ...</p>
                         <div class="read-more cl-effect-14">
                             <a href="{{ post.get_absolute_url }}" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
                         </div>
@@ -60,5 +60,6 @@
                     </div>
                     {% endif %}
                 </div>
+{% endblock %}
 
-{% endblock main %}
+
