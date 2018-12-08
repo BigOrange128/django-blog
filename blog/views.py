@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from .models import Post, Category, Tag
 import markdown
-from comments.forms import CommentForm
+from comments.forms import CommentForm, ContactForm
 from django.views.generic import ListView, DetailView
 from django.utils.text import slugify
 from markdown.extensions.toc import TocExtension
@@ -140,3 +140,11 @@ class PostDetailView(DetailView):
     #     'comment_list' : comment_list
     # }
     # return render(request, 'blog/detail.html', context = context)
+
+def Contact(request):
+    form = ContactForm()
+    context = {'form' : form}
+    return render(request,'blog/contact.html', context = context)
+
+def About(request):
+    return render(request, 'blog/about.html')
