@@ -13,7 +13,7 @@ class IndexView(ListView):
     model = Post
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
-    paginate_by = 2
+    paginate_by = 3
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # 父类生成的字典中已有 paginator、page_obj、is_paginated 这三个模板变量，
