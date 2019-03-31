@@ -4,9 +4,9 @@ from .models import Comment, Contact
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['name', 'email', 'url', 'text']
+        fields = ['text']
 
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = ['name', 'email', 'subject', 'message']
+        fields = ['subject', 'message']

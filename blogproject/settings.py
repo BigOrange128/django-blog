@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'blog',
     'comments',
     'haystack',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -85,7 +86,7 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'blog',     # 数据库名
+#         'NAME': 'newblog',     # 数据库名
 #         'USER': 'root',     # 用户名
 #         'PASSWORD': '',  # 密码
 #         'HOST': '127.0.0.1',
@@ -127,6 +128,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'users.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

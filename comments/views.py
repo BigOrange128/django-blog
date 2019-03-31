@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from blog.models import Post
+from users.models import User
 from .models import Comment
 from .forms import CommentForm, ContactForm
 from django.contrib import messages
@@ -17,6 +18,7 @@ def post_comment(request, post_pk):
             comment = form.save(commit=False)
             #将评论和被评论文章关联
             comment.post = post
+            comment.name = request.user
             comment.save()
             #当redirect函数接收到一个模型实例是，他会调用该模型实例的get_absolute_url方法
             #重定向到了get_absolute_url方法返回的url，也就是重定向到了该文章的详细页面。
