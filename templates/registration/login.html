@@ -17,6 +17,7 @@
     <div class="container">
         <div class="flex-center">
             <div class="unit-1-2 unit-1-on-mobile">
+                <h1><a href="{% url 'blog:index' %}">BigOrange</a></h1>
                 <h3>登录</h3>
                 <form class="form" action="{% url 'login' %}" method="post">
                     {% csrf_token %}
