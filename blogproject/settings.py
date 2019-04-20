@@ -147,3 +147,15 @@ HAYSTACK_CONNECTIONS = {
         'PATH' : os.path.join(BASE_DIR, 'whoosh_index')
     }
 }
+#邮件发送配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 25
+#发送邮件的邮箱
+EMAIL_HOST_USER = 'bigorangeblog@163.com'
+#在邮箱中设置的客户端授权密码
+EMAIL_HOST_PASSWORD = ''
+# 需要和邮箱号码一致
+DEFAULT_FROM_EMAIL = 'bigorangeblog@163.com'
+
