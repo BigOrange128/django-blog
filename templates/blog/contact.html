@@ -8,12 +8,6 @@
                                 {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
-                                        <label for="{{ form.name.id_for_label }}">名字：</label>
-                                        {{ form.name }}
-                                        {{ form.name.errors }}
-                                        <label for="{{ form.email.id_for_label }}">邮箱：</label>
-                                        {{ form.email }}
-                                        {{ form.email.errors }}
                                         <label for="{{ form.subject.id_for_label }}">主题：</label>
                                         {{ form.subject }}
                                         {{ form.subject.errors }}
