@@ -1,6 +1,6 @@
 {% extends 'base2.html' %}
 {% block main %}
-                    <h1 class="page-title">联系我</h1>
+                    <h1 class="page-title">投稿</h1>
 						<article class="post">
 							<div class="entry-content clearfix">
 
@@ -8,13 +8,19 @@
                                 {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
+                                        <label for="{{ form.name.id_for_label }}">作者：</label>
+                                        {{ form.name }}
+                                        {{ form.name.errors }}
+                                        <label for="{{ form.email.id_for_label }}">电子邮箱：</label>
+                                        {{ form.email }}
+                                        {{ form.email.errors }}
                                         <label for="{{ form.subject.id_for_label }}">主题：</label>
                                         {{ form.subject }}
                                         {{ form.subject.errors }}
                                         <label for="{{ form.message.id_for_label }}">内容：</label>
                                         {{ form.message }}
                                         {{ form.message.errors }}
-                                        <center><button class="btn-send btn-5 btn-5b ion-ios-paperplane"><span>给我留言</span></button></center>
+                                        <center><button class="btn-send btn-5 btn-5b ion-ios-paperplane"><span>提交</span></button></center>
                                     </div>
                                 </div>    <!-- row -->
                                 </form>
