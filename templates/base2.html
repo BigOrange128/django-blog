@@ -114,10 +114,17 @@
     <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
     <nav>
         <ul>
-            <li><a href="index.html">首页</a></li>
-            <li><a href="full-width.html">博客</a></li>
-            <li><a href="about.html">关于</a></li>
-            <li><a href="contact.html">联系</a></li>
+            <li><a href="{% url 'blog:index' %}" data-hover="首页">首页</a></li>
+            <li><a href="{% url 'blog:blog' %}" data-hover="博客">博客</a></li>
+            <li><a href="{% url 'blog:about' %}" data-hover="关于">关于</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'blog:contact' %}" data-hover="投稿">投稿</a></li>
+                <li><a href="{% url 'logout' %}?next={{ request.path }}" data-hover="注销">注销</a></li>
+                <li><a href="{% url 'password_change' %}" data-hover="修改密码">修改密码</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}?next={{ request.path }}" data-hover="登录">登录</a></li>
+                <li><a href="{% url 'users:register' %}?next={{ request.path }}" data-hover="注册">注册</a></li>
+            {% endif %}
         </ul>
     </nav>
 </div>
