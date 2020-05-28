@@ -34,26 +34,31 @@ def post_comment(request, post_pk):
                 'form' : form,
                 'comment_list' : comment_list
             }
-            messages.error(request, '提交失败，请检查格式！')
+            # messages.error(request, '提交失败，请检查格式！')
             return render(request, 'blog/detail.html', context=context)
     #不是post请求，说明用户没有提交数据，重定向到文章详情页。
-    messages.error(request, '提交失败！')
+    # messages.error(request, '提交失败！')
     return redirect(post)
 
 def post_contact(request):
     newform = ContactForm()
     newcontext = {'form': newform}
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        context = {'form': form}
-        if form.is_valid():
-            contact = form.save()
-            messages.success(request, '提交成功！')
-            return render(request, 'blog/contact.html',context = newcontext)
-        else:
-            messages.error(request, '提交失败，请检查格式！')
-            return render(request, 'blog/contact.html', context = context)
-    messages.error(request, '提交失败!')
-    return render(request, 'blog/contact.html', context = newcontext)
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = ContactForm(request.POST)
+            context = {'form': form}
+            if form.is_valid():
+                contact = form.save()
+                messages.success(request, '提交成功！')
+                return render(request, 'blog/contact.html', context=newcontext)
+                # return redirect('http://127.0.0.1:8000/contact/')
+            else:
+                # messages.error(request, '提交失败，请检查格式！')
+                return render(request, 'blog/contact.html', context=context)
+        # messages.error(request, '提交失败!')
+        return render(request, 'blog/contact.html', context=newcontext)
+    else:
+        messages.error(request, '请登录账号后操作！')
+        return render(request, 'blog/contact.html', context=newcontext)
 
 

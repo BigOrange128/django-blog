@@ -177,10 +177,10 @@ class PostDetailView(DetailView):
     # }
     # return render(request, 'blog/detail.html', context = context)
 
-def Contact(request):
-    form = ContactForm()
-    context = {'form' : form}
-    return render(request,'blog/contact.html', context = context)
+# def Contact(request):
+#     form = ContactForm()
+#     context = {'form' : form}
+#     return render(request,'blog/contact.html', context = context)
 
 def About(request):
     return render(request, 'blog/about.html')
