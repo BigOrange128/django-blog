@@ -4,6 +4,7 @@ from users.models import User
 from .models import Comment
 from .forms import CommentForm, ContactForm
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 def post_comment(request, post_pk):
@@ -59,6 +60,7 @@ def post_contact(request):
         return render(request, 'blog/contact.html', context=newcontext)
     else:
         messages.error(request, '请登录账号后操作！')
-        return render(request, 'blog/contact.html', context=newcontext)
+        # return render(request, 'blog/contact.html', context=newcontext)
+        return HttpResponseRedirect("/index/")
 
 

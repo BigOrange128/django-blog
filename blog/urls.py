@@ -3,6 +3,7 @@ from . import views
 
 app_name = 'blog'
 urlpatterns = [
+    path('index/', views.IndexView.as_view(), name = 'index'),
     path('', views.IndexView.as_view(), name = 'index'),
     path('post/<int:pk>/', views.PostDetailView.as_view(), name = 'detail'),
     path('archives/<int:year>/<int:month>', views.ArchivesView.as_view(), name = 'archives'),

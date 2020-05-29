@@ -60,6 +60,7 @@
                             <li class="cl-effect-11"><a href="{% url 'blog:blog' %}" data-hover="博客">博客</a></li>
                             <li class="cl-effect-11"><a href="{% url 'blog:about' %}" data-hover="关于">关于</a></li>
                             {% if user.is_authenticated %}
+                                <li><a href="" data-hover="{{ request.user }}">{{ request.user }}</a></li>
                                 <li class="cl-effect-11"><a href="{% url 'comments:post_contact' %}" data-hover="投稿">投稿</a></li>
                                 <li class="cl-effect-11"><a href="{% url 'logout' %}?next={{ request.path }}" data-hover="注销">注销</a></li>
                                 <li class="cl-effect-11"><a href="{% url 'password_change' %}" data-hover="修改密码">修改密码</a></li>
@@ -179,6 +180,7 @@
             <li><a href="{% url 'blog:blog' %}" data-hover="博客">博客</a></li>
             <li><a href="{% url 'blog:about' %}" data-hover="关于">关于</a></li>
             {% if user.is_authenticated %}
+                <li><a href="" data-hover="{{ request.user }}">{{ request.user }}</a></li>
                 <li><a href="{% url 'comments:post_contact' %}" data-hover="投稿">投稿</a></li>
                 <li><a href="{% url 'logout' %}?next={{ request.path }}" data-hover="注销">注销</a></li>
                 <li><a href="{% url 'password_change' %}" data-hover="修改密码">修改密码</a></li>
