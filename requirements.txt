@@ -14,7 +14,7 @@ jieba==0.39
 Jinja2==2.10
 Markdown==3.0.1
 MarkupSafe==1.1.0
-paramiko==2.4.2
+paramiko==2.10.1
 pyasn1==0.4.4
 pycparser==2.19
 Pygments==2.2.0
